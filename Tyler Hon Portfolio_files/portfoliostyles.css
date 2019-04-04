@@ -1,0 +1,313 @@
+/* Style for body specifies a background color */
+body {
+	background: linear-gradient(#0c124d, #FFFFFF);
+	
+}
+
+
+/* Style to create a fluid image */
+figure img {
+	max-width: 40%;
+	border-radius: 20px;
+	border-image: url(image1.png) 50 round;
+	transform: rotate(5deg);
+	filter: grayscale(30%);
+}
+
+
+
+/* Styles for Mobile Layout */
+
+/* Style for the container centers the page and specifies the width */
+#container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#social img {
+	width: 10%;
+}
+
+/* Style for the header specifies top margin, background color, rounded corners, and center align content */
+header {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 2.3em;
+	margin-top: 0.2em;
+	color: #FFFFFF;
+	border-radius: 0.5em;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* Style for nav specifies text properties */
+nav {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* Style specifies padding and margins for unordered list */
+nav ul {
+	padding: 0;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+/* Style for nav li specifies the background color, rounded corners, removes bullet style, and applies margins and padding for list items within the navigation */
+nav li {
+	background-color: #D3D3D3; 
+	border-radius: .5em; 
+	list-style-type: none; 
+	margin: 0.3em; 
+	padding: 0.4em;    
+	color: #000000;
+	
+}
+
+/* Style changes navigation link text color to white and removes the underline */
+a:hover {
+	color: blue;
+}
+
+a:active {
+	color: rgb(2, 2, 68);
+}
+
+
+nav li a { 
+	color: black; 
+	text-decoration: none; 
+}
+
+
+
+
+/* Style for the main specifies a block display, text properties, margins, padding, rounded corners, and borders  */
+main {
+	display: block;
+	font-family: Georgia, "Times New Roman", sans-serif;
+	font-size: 1em;
+	margin-top: 0.2em;
+	padding: 0.5em;
+	border-top: solid 0.2em #FFFFFF; 
+	border-bottom: solid 0.2em #FFFFFF;
+	
+}
+
+/* Style for the footer specifies font size, text alignment, and top margin */
+footer {
+	font-size: .70em;
+	text-align: center;
+	margin-top: 2em;
+}
+
+#social {
+	width: 100%;
+	text-align: center;
+	margin: auto;
+}
+
+
+
+/* Style displays the mobile class */
+.mobile {
+	display: inline;
+}
+
+/* Style hides the desktop class */
+.desktop {
+	display: none;
+}
+
+/* Style for the div paragraph elements */
+div p {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+/* Style for the section element */
+section {
+	padding: 1%;
+	text-align: center;
+	margin: auto;
+}
+
+/* Style for the article element */
+article {
+	border-top: solid 0.2em #FFFFFF;
+	padding: 2%;
+	margin: .5%;
+	text-align: left;
+	background-color: #D3D3D3;
+	border-top: 0;
+	border-radius: 2em 0 2em 0;
+	margin-bottom: .5em;
+	border-style: solid;
+}
+
+/* Style rule for input and textarea form elements */
+input, textarea { 
+    display: block;
+	margin-bottom: 1em;
+}
+
+/* Style rule for label element */
+label {
+	display: block;
+}
+
+/*Specifies footer elements*/
+footer{
+	font-family: Tahoma, Geneva, sans-serif;
+	color:#000000;
+	font-size: .75em;
+	text-align: center;
+}
+
+
+
+/***Styles for tablet viewport **********/
+@media only screen and (min-width: 660px) {
+
+#container {
+	width: 100%;
+	text-align: center;
+}
+/* Style specifies width and float for image */
+figure img {
+	width: 20%;
+	float: left;
+	padding-left: 1em;
+}
+
+
+
+/* Style specifies margin and padding for paragraph within the header */
+header p{
+	margin-bottom: 4em;
+	padding-top: 3em;	
+	font-size: 30pt;
+}
+
+/* Style specifies display, float, margin, padding, and width for nav list items */
+nav li {
+	float: center;
+	display: inline-block;
+	margin: auto;
+	padding-left: 1em;
+	padding-right: 1em;
+	width: 15%;
+	
+}
+
+
+nav li a {
+	color: #000000;
+	
+}
+
+/* Style specifies clear and margin for the main element */
+main {
+	
+	clear: left;
+	
+}
+
+/* Style hides the mobile class */
+.mobile {
+	display: none;
+}
+
+/* Style displays the desktop class */
+.desktop {
+	display: inline;
+}
+
+/* Style for the section element */
+section {
+	width: 90%;
+	
+}
+
+/* Style for the article element */
+article {
+	background-color: #D3D3D3;
+	border-top: 0;
+	border-radius: 2em 0 2em 0;
+	margin-bottom: 1em;
+	
+}
+
+/* Style for the aside element */
+aside {
+	text-align:center;
+	color: #FF6600;
+	background-color: #FFFFFF;
+	box-shadow: 1em 1em 1em #000000;
+	border-radius: 8em;
+}
+
+/* Style for table, th, and td elements */
+th, td {
+	border: solid 0.1em #000000;
+	border-collapse: collapse;
+	padding: 1em;
+}
+
+/*Style for table element*/
+table{
+		border: 0.2em solid #000000;
+		border-collapse: collapse;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+}
+
+/* Style for caption element */
+caption {
+	font-size: 1.5em;
+	padding-bottom: 1em;
+}
+
+/* Style rule for label element */
+label { 
+	float: left;
+	padding-right: 0.5em;
+	text-align: right;
+	width: 8em;
+}
+
+footer {
+	margin-top: -2em;
+	font-size: .75em;
+}
+
+#social {
+	
+	text-align: center;
+	margin: auto;
+}
+
+#social img {
+	width: 5%;
+}
+
+}/*end tablet query*/
+
+/*****Styles for desktop viewport ***/
+@media only screen and (min-width: 830px) {
+
+/* Style specifies width for container */ 
+#container {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#social img {
+	width: 5%;
+}
+
+}/*end desktop query*/

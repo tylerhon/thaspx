@@ -1,0 +1,2 @@
+index.file=Tyler Hon Portfolio.html
+url=http://localhost/Portfolio/
