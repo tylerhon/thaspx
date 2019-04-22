@@ -14,13 +14,8 @@ public partial class borrower : System.Web.UI.Page
 
     protected void btnClear_Click(object sender, EventArgs e)
     {
-        fName.Text = "";
-        lName.Text = "";
-        phoneNum.Text = "";
+       
     }
 
-    protected void btnSubmit_Click(object sender, EventArgs e)
-    {
-        lblMessage.Text = "Thank you for your submission.";
-    }
+    
 }
