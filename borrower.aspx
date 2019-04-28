@@ -24,11 +24,12 @@
             <ul class="nav navbar-nav">
                 <li class="acive"><a href="Default.aspx">Home</a></li>
                 <li><a href="artist.aspx">Aritist</a></li>
-                <li style="height: 26px"><a href="borrower.aspx">Borrower</a></li>
+                <li style="height: 24px"><a href="borrower.aspx">Borrower</a></li>
                 <li><a href="disk.aspx">Disk</a></li>
+                <li style="height: 24px"><a href="CheckOut.aspx">Check Out</a></li>
+                <li style="height: 24px"><a href="checkOutReport.aspx">Check Out Report</a></li>
             </ul>
-                <p>
-                    &nbsp;</p>
+               
         </div>
     </nav>
             <asp:ListView ID="ListView1" runat="server" DataKeyNames="borrower_id" DataSourceID="SqlDataSource1" InsertItemPosition="LastItem">
