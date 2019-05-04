@@ -19,7 +19,10 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="Default.aspx">Check Out</a>
+                    <a class="navbar-brand" href="Default.aspx">
+                        <h2>Check Out</h2>
+
+                    </a>
                 </div>
             <ul class="nav navbar-nav">
                 <li class="acive"><a href="Default.aspx">Home</a></li>
@@ -31,13 +34,61 @@
             </ul>
         </div>
     </nav>
+
+            <%@ Import Namespace="System.Data.SqlClient" %>
+
+            <script runat="server">
+                protected void Button1_Click(object sender, EventArgs e)
+                {
+                    if (Page. IsValid)
+                    {
+                        SqlConnection connection;
+                        SqlCommand command;
+
+                        string connectionString =
+                            ConfigurationManager.ConnectionStrings["disk_inventorythConnectionString"].ConnectionString;
+
+                        connection = new SqlConnection(connectionString);
+
+                        command = new SqlCommand("EXEC INS_diskHasBorrower @disk_id, @borrower_id, @borrowed_date", connection);
+
+                        command.Parameters.Add("@disk_id", System.Data.SqlDbType.Int);
+                        command.Parameters["@disk_id"].Value = DropDownList1.SelectedValue;
+
+                        command.Parameters.Add("@borrower_id", System.Data.SqlDbType.Int);
+                        command.Parameters["@borrower_id"].Value = DropDownList2.SelectedValue;
+
+                        command.Parameters.Add("@borrowed_date", System.Data.SqlDbType.DateTime);
+                        command.Parameters["@borrowed_date"].Value = Calendar1.SelectedDate;
+
+                        try
+                        {
+                            connection.Open();
+
+                            command.ExecuteNonQuery();
+
+                            Response.Redirect("checkOutReport.aspx");
+                        }
+                        catch (SqlException ex)
+                        {
+                            msgLabel.Text = "Error" + ex.Message.ToString();
+                        }
+                        finally
+                        {
+                            connection.Close();
+                        }
+
+                    }
+                }
+            </script>
+
                     
-            <main class="col-sm-9">
+          <main class="col-sm-9">
                 
-            <br />
+            
             Select disk name:<br />
             <br />
-            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="disk_name" DataValueField="status_id">
+            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="disk_name" DataValueField="disk_id">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:disk_inventorythConnectionString %>" 
                 SelectCommand="SELECT * FROM [disk] WHERE ([status_id] = @status_id) ORDER BY [disk_name]">
@@ -50,10 +101,10 @@
             <br />
             Select borrower name:<br />
             <br />
-            <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource2" DataTextField="lname" DataValueField="lname">
+            <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource2" DataTextField="lname" DataValueField="borrower_id">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:disk_inventorythConnectionString %>" 
-                SelectCommand="SELECT [lname] FROM [borrower] ORDER BY [lname], [fname]"></asp:SqlDataSource>
+                SelectCommand="SELECT [lname], borrower_id FROM [borrower] ORDER BY [lname], [fname]"></asp:SqlDataSource>
                 
             <br />
             <br />
@@ -76,7 +127,8 @@
             <br />
             <asp:Label ID="msgLabel" runat="server"></asp:Label>
                 
-            </main>
+
+          </main>
    
         </div>
 

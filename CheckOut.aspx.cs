@@ -15,5 +15,7 @@ public partial class CheckOut : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         msgLabel.Text = "Thank you for checking out a disk through us.";
+
+        
     }
 }

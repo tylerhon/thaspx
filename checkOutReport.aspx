@@ -19,7 +19,10 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="Default.aspx">Check Out</a>
+                    <a class="navbar-brand" href="Default.aspx">
+                        <h2>Checked Out Disks</h2>
+
+                    </a>
                 </div>
             <ul class="nav navbar-nav">
                 <li class="acive"><a href="Default.aspx">Home</a></li>
@@ -37,17 +40,17 @@
                 
             <br />
             <br />
-            <h2>Checked Out Items</h2>
+            
             <br />
 
-            <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" DataKeyNames="disk_id,borrower_id,borrowed_date">
+            <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" >
                 <AlternatingItemTemplate>
                     <tr style="background-color: #FFFFFF;color: #284775;">
                         <td>
-                            <asp:Label ID="disk_idLabel" runat="server" Text='<%# Eval("disk_id") %>' />
+                            <asp:Label ID="disk_idLabel" runat="server" Text='<%# Eval("disk_name") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="borrower_idLabel" runat="server" Text='<%# Eval("borrower_id") %>' />
+                            <asp:Label ID="borrower_idLabel" runat="server" Text='<%# Eval("lname") %>' />
                         </td>
                         <td>
                             <asp:Label ID="borrowed_dateLabel" runat="server" Text='<%# Eval("borrowed_date") %>' />
@@ -64,10 +67,10 @@
                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
                         </td>
                         <td>
-                            <asp:Label ID="disk_idLabel1" runat="server" Text='<%# Eval("disk_id") %>' />
+                            <asp:Label ID="disk_idLabel1" runat="server" Text='<%# Eval("disk_name") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="borrower_idLabel1" runat="server" Text='<%# Eval("borrower_id") %>' />
+                            <asp:Label ID="borrower_idLabel1" runat="server" Text='<%# Eval("lname") %>' />
                         </td>
                         <td>
                             <asp:Label ID="borrowed_dateLabel1" runat="server" Text='<%# Eval("borrowed_date") %>' />
@@ -91,10 +94,10 @@
                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
                         </td>
                         <td>
-                            <asp:TextBox ID="disk_idTextBox" runat="server" Text='<%# Bind("disk_id") %>' />
+                            <asp:TextBox ID="disk_idTextBox" runat="server" Text='<%# Bind("disk_name") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="borrower_idTextBox" runat="server" Text='<%# Bind("borrower_id") %>' />
+                            <asp:TextBox ID="borrower_idTextBox" runat="server" Text='<%# Bind("lname") %>' />
                         </td>
                         <td>
                             <asp:TextBox ID="borrowed_dateTextBox" runat="server" Text='<%# Bind("borrowed_date") %>' />
@@ -107,10 +110,10 @@
                 <ItemTemplate>
                     <tr style="background-color: #E0FFFF;color: #333333;">
                         <td>
-                            <asp:Label ID="disk_idLabel" runat="server" Text='<%# Eval("disk_id") %>' />
+                            <asp:Label ID="disk_idLabel" runat="server" Text='<%# Eval("disk_name") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="borrower_idLabel" runat="server" Text='<%# Eval("borrower_id") %>' />
+                            <asp:Label ID="borrower_idLabel" runat="server" Text='<%# Eval("lname") %>' />
                         </td>
                         <td>
                             <asp:Label ID="borrowed_dateLabel" runat="server" Text='<%# Eval("borrowed_date") %>' />
@@ -144,10 +147,10 @@
                 <SelectedItemTemplate>
                     <tr style="background-color: #E2DED6;font-weight: bold;color: #333333;">
                         <td>
-                            <asp:Label ID="disk_idLabel" runat="server" Text='<%# Eval("disk_id") %>' />
+                            <asp:Label ID="disk_idLabel" runat="server" Text='<%# Eval("disk_name") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="borrower_idLabel" runat="server" Text='<%# Eval("borrower_id") %>' />
+                            <asp:Label ID="borrower_idLabel" runat="server" Text='<%# Eval("lname") %>' />
                         </td>
                         <td>
                             <asp:Label ID="borrowed_dateLabel" runat="server" Text='<%# Eval("borrowed_date") %>' />
@@ -159,7 +162,9 @@
                 </SelectedItemTemplate>
             </asp:ListView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:disk_inventorythConnectionString %>" 
-                SelectCommand="SELECT * FROM [diskHasBorrower]"></asp:SqlDataSource>
+                SelectCommand="SELECT disk_name, lname, borrowed_date, returned_date FROM [diskHasBorrower]
+join disk on disk.disk_id = diskHasBorrower.disk_id
+join borrower on borrower.borrower_id = diskHasBorrower.borrower_id"></asp:SqlDataSource>
 
             </main></div>
 

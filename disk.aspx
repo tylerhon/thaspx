@@ -19,7 +19,10 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="Default.aspx">Disk</a>
+                    <a class="navbar-brand" href="Default.aspx">
+                        <h2>Disk</h2>
+
+                    </a>
                 </div>
             <ul class="nav navbar-nav">
                 <li class="acive"><a href="Default.aspx">Home</a></li>
@@ -172,12 +175,12 @@
                                 <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
                                     <tr runat="server" style="background-color: #E0FFFF;color: #333333;">
                                         <th runat="server"></th>
-                                        <th runat="server">disk_id</th>
-                                        <th runat="server">disk_name</th>
-                                        <th runat="server">release_date</th>
-                                        <th runat="server">genre_id</th>
-                                        <th runat="server">status_id</th>
-                                        <th runat="server">disk_type_id</th>
+                                        <th runat="server">Disk ID</th>
+                                        <th runat="server">Disk Name</th>
+                                        <th runat="server">Release Date</th>
+                                        <th runat="server">Genre ID</th>
+                                        <th runat="server">Status ID</th>
+                                        <th runat="server">Disk Type</th>
                                     </tr>
                                     <tr id="itemPlaceholder" runat="server">
                                     </tr>

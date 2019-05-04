@@ -19,7 +19,10 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="Default.aspx">Disk Inventory</a>
+                    <a class="navbar-brand" href="Default.aspx">
+                        <h1>Disk Inventory</h1>
+
+                    </a>
                 </div>
             <ul class="nav navbar-nav">
                 <li class="acive"><a href="Default.aspx">Home</a></li>
